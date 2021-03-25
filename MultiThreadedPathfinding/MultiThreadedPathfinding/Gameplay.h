@@ -2,6 +2,7 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include <array>
+#include "Level1.h"
 
 class GamePlay
 {
@@ -21,5 +22,8 @@ private:
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Time timePerFrame = sf::seconds(1.0f / 2.0f);
+
+	LevelOne levelOne;
+
 
 };
