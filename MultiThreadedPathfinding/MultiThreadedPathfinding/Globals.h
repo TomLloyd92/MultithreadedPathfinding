@@ -6,10 +6,10 @@ enum class  GameMode
 {
 	Gameplay
 };
-const static int TILE_WIDTH = 20;
+const static int TILE_WIDTH = 5;
 
-const static int SCREEN_WIDTH = TILE_WIDTH * 50;
-const static int SCREEN_HEIGHT = TILE_WIDTH * 50;
+const static int SCREEN_WIDTH = TILE_WIDTH * 100;
+const static int SCREEN_HEIGHT = TILE_WIDTH * 100;
 const static int MS_PER_UPDATE = 10;
 
 const static float PI = 3.14159265359;

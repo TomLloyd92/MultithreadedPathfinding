@@ -1,32 +1,35 @@
 #include "Level1.h"
 
-
-
+//Path for A Star Representation
 std::vector<Node*> path;
 
-Graph<NodeData, int> levelGraph(25);
-int const ROWS = 5;
-int const COLS = 5;
-int arr[ROWS][COLS] =
-{
-	{ 0, 1, 2, 3, 4 },
-	{ 5, 6, 7, 8, 9 },
-	{ 10, 11, 12, 13, 14 },
-	{ 15, 16, 17, 18, 19 },
-	{ 20, 21, 22, 23, 24 }
-};
+//First level Rows Cols making of the grid
+static int const ROWS = 30;
+static int const COLS = 30;
+static int arr[ROWS][COLS];
+int amountNodes = ROWS * COLS;
+Graph<NodeData, int> levelGraph(amountNodes);
 
-
-
+//Function to say what we are visiting
 void LevelOne::visit(Node* t_node)
 {
 	std::cout << "Visiting: " << t_node->m_data.m_name << std::endl;
 }
 
-
-
+//Level One Graph Set up
 LevelOne::LevelOne()
 {
+	//Set Array relative to graph
+	int inputNumber = 0;
+	for (int y = 0; y < COLS; y++)
+	{
+		for (int x = 0; x < ROWS; x++)
+		{
+			arr[x][y] = inputNumber;
+			inputNumber++;
+		}
+	}
+
 	NodeData nodeData;
 	int nodeIndex = 0;
 	std::ifstream myfile;
@@ -52,12 +55,11 @@ LevelOne::LevelOne()
 				nodeData.rectangle.setFillColor(sf::Color(255, 255, 255, 255));
 			}
 
-
 			levelGraph.addNode(nodeData, arr[x][y]);
 		}
 	}
 
-	//Create the arcs
+	//Create the arcs for sourounding nodes
 	for (int y = 0; y < COLS; y++)
 	{
 		for (int x = 0; x < ROWS; x++)
@@ -83,7 +85,6 @@ LevelOne::LevelOne()
 							* (levelGraph.nodeIndex(arr[n_row][n_col])->m_data.yPos - levelGraph.nodeIndex(arr[x][y])->m_data.yPos));
 
 						//std::cout << weight << std::endl;
-
 						levelGraph.addArc(arr[n_row][n_col], arr[x][y], weight);
 					}
 				}
@@ -98,7 +99,7 @@ LevelOne::~LevelOne()
 
 void LevelOne::update(sf::Time t_deltaTime)
 {
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < amountNodes; i++)
 	{
 		levelGraph.nodeIndex(i)->m_data.rectangle.setSize(sf::Vector2f(TILE_WIDTH, TILE_WIDTH));
 		levelGraph.nodeIndex(i)->m_data.rectangle.setOutlineThickness(1);
@@ -106,27 +107,20 @@ void LevelOne::update(sf::Time t_deltaTime)
 		levelGraph.nodeIndex(i)->m_data.rectangle.setPosition(levelGraph.nodeIndex(i)->m_data.xPos, levelGraph.nodeIndex(i)->m_data.yPos);
 	}
 
-	//Testing aStar by colouring in the squares
-
-	levelGraph.aStar(levelGraph.nodeIndex(arr[0][0]), levelGraph.nodeIndex(arr[4][3]), path);
+	//Testing aStar by colouring in the square
+	levelGraph.aStar(levelGraph.nodeIndex(arr[0][0]), levelGraph.nodeIndex(arr[15][29]), path);
 	for (auto& node : path) {
 
 		node->m_data.rectangle.setFillColor(sf::Color(0, 255, 0, 255));
 		node->m_data.rectangle.setOutlineColor(sf::Color::Black);
 	}
-
 }
 
 void LevelOne::render(sf::RenderWindow& t_window)
 {
-
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < amountNodes; i++)
 	{
-
 		t_window.draw(levelGraph.nodeIndex(i)->m_data.rectangle);
-
-
-
 	}
 
 }
