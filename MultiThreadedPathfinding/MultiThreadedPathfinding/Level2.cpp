@@ -129,6 +129,7 @@ void LevelTwo::render(sf::RenderWindow& t_window)
 
 void LevelTwo::setup(sf::Font& t_font)
 {
+	//Rows = ROWS2;
 }
 
 void LevelTwo::initialise()

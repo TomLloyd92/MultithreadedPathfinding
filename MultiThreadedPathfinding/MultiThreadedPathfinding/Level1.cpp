@@ -42,12 +42,41 @@ LevelOne::LevelOne()
 			nodeData.xPos = x * TILE_WIDTH;
 			nodeData.yPos = y * TILE_WIDTH;
 
-
-			if (y == 3 && x == 3)
+			//Wall 1
+			if (x == 3 && y >= 0 && y < 15 )
 			{
 				nodeData.passable = false;
 				nodeData.rectangle.setFillColor(sf::Color(255, 0, 0, 255));
-
+			}
+			//Wall 2
+			else if (x == 15 && y > 15)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(255, 0, 0, 255));
+			}
+			//Wall 3
+			else if (x == 15 && y > 15)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(255, 0, 0, 255));
+			}
+			//Wall 4
+			else if (x == 20 && y < 20)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(255, 0, 0, 255));
+			}
+			//Wall 5
+			else if (x == 8 && y < 20 && y > 10)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(255, 0, 0, 255));
+			}
+			//Wall 6
+			else if (x == 25 && y < 28 && y > 16)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(255, 0, 0, 255));
 			}
 			else
 			{
@@ -108,7 +137,7 @@ void LevelOne::update(sf::Time t_deltaTime)
 	}
 
 	//Testing aStar by colouring in the square
-	levelGraph.aStar(levelGraph.nodeIndex(arr[0][0]), levelGraph.nodeIndex(arr[15][29]), path);
+	levelGraph.aStar(levelGraph.nodeIndex(arr[0][0]), levelGraph.nodeIndex(arr[29][29]), path);
 	for (auto& node : path) {
 
 		node->m_data.rectangle.setFillColor(sf::Color(0, 255, 0, 255));
@@ -127,6 +156,7 @@ void LevelOne::render(sf::RenderWindow& t_window)
 
 void LevelOne::setup(sf::Font& t_font)
 {
+	//Rows = ROWS;
 }
 
 void LevelOne::initialise()

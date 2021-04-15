@@ -10,8 +10,6 @@ GamePlay::~GamePlay()
 
 void GamePlay::update(sf::Time t_deltaTime, sf::RenderWindow& t_window)
 {
-
-
 	switch (level)
 	{
 	case GamePlay::ONE:
@@ -20,22 +18,19 @@ void GamePlay::update(sf::Time t_deltaTime, sf::RenderWindow& t_window)
 		break;
 	case GamePlay::TWO:
 		//Level Two Grid Update
-		levelTwo.update(t_deltaTime);
+		//levelTwo.update(t_deltaTime);
 		break;
 	case GamePlay::THREE:
 		//Level Two Grid Update
-		levelThree.update(t_deltaTime);
+		//levelThree.update(t_deltaTime);
 		break;
 	default:
 		break;
 	}
-
 }
 
 void GamePlay::render(sf::RenderWindow& t_window)
 {
-
-
 	switch (level)
 	{
 	case GamePlay::ONE:
@@ -44,11 +39,11 @@ void GamePlay::render(sf::RenderWindow& t_window)
 		break;
 	case GamePlay::TWO:
 		//Level Two Grid Render
-		levelTwo.render(t_window);
+		//levelTwo.render(t_window);
 		break;
 	case GamePlay::THREE:
 		//Level Two Grid Render
-		levelThree.render(t_window);
+		//levelThree.render(t_window);
 		break;
 	default:
 		break;
@@ -65,10 +60,10 @@ void GamePlay::setup(sf::Font& t_font)
 		levelOne.setup(t_font);
 		break;
 	case GamePlay::TWO:
-		levelTwo.setup(t_font);
+		//levelTwo.setup(t_font);
 		break;
 	case GamePlay::THREE:
-		levelThree.setup(t_font);
+		//levelThree.setup(t_font);
 		break;
 	default:
 		break;

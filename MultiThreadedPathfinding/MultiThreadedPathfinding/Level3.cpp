@@ -129,6 +129,7 @@ void LevelThree::render(sf::RenderWindow& t_window)
 
 void LevelThree::setup(sf::Font& t_font)
 {
+	//Rows = ROWS3;
 }
 
 void LevelThree::initialise()

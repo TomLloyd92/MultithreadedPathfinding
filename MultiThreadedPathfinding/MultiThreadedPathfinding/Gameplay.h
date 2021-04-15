@@ -6,6 +6,8 @@
 #include "Level2.h"
 #include "Level3.h"
 
+
+
 class GamePlay
 {
 public:
@@ -25,13 +27,13 @@ private:
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Time timePerFrame = sf::seconds(1.0f / 2.0f);
 
-	enum Level { ONE, TWO, THREE};
-	Level level = Level::TWO;
+	enum Level { ONE, TWO, THREE };
+	Level level = Level::ONE;
 
 
 	LevelOne levelOne;
-	LevelTwo levelTwo;
-	LevelThree levelThree;
+	//LevelTwo levelTwo;
+	//LevelThree levelThree;
 
 
 };
