@@ -14,6 +14,8 @@
 typedef GraphArc<NodeData, int> Arc;
 typedef GraphNode<NodeData, int> Node;
 
+
+
 class LevelOne
 {
 public:
@@ -25,8 +27,10 @@ public:
 	void initialise();
 	void visit(Node* t_node);
 
+	Graph<NodeData, int> levelGraph;
+
+
+
 private:
-
-
 
 };

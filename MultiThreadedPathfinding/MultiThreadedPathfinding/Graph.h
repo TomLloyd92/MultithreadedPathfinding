@@ -27,6 +27,7 @@ public:
 	typedef GraphNode<NodeType, ArcType> Node;
 
 	// Constructor and destructor functions
+	Graph() {};
 	Graph(int size);
 	~Graph();
 

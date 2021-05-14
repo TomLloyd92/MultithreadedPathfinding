@@ -146,7 +146,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gameplay.cpp" />
-    <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="LevelOne.cpp" />
     <ClCompile Include="Level2.cpp" />
     <ClCompile Include="Level3.cpp" />
     <ClCompile Include="main.cpp" />
@@ -160,7 +160,7 @@
     <ClInclude Include="Graph.h" />
     <ClInclude Include="GraphArc.h" />
     <ClInclude Include="GraphNode.h" />
-    <ClInclude Include="Level1.h" />
+    <ClInclude Include="LevelOne.h" />
     <ClInclude Include="Level3.h" />
     <ClInclude Include="Level2.h" />
     <ClInclude Include="NodeCompare.h" />

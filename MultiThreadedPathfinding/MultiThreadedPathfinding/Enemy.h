@@ -12,9 +12,24 @@ public:
 	void setup(sf::Font& t_font);
 	void initialise();
 
-	sf::Vector2f pos;
+	//Gets
+	int getCurrentNode() { return m_currentNode; };
+
+	
+
+	sf::RectangleShape* getRectangle() { return &m_enemyShape; };
+
 
 private:
-	void currentNode();
+	void currentNodeUpdate();
+	
 	int m_currentNode;
+
+	//std::vector<Node*> m_path;
+	sf::RectangleShape m_enemyShape;
+
+	int rows = 30;
+	//int rows = 100;
+	//int rows = 1000;
+
 };

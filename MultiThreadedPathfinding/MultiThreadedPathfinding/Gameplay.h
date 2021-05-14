@@ -2,10 +2,17 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include <array>
-#include "Level1.h"
+#include "LevelOne.h"
 #include "Level2.h"
 #include "Level3.h"
-
+#include "Enemy.h"
+#include <fstream>
+#include "Graph.h"
+#include "GraphArc.h"
+#include "GraphNode.h"
+#include "NodeData.h"
+#include "Globals.h"
+#include "Player.h"
 
 
 class GamePlay
@@ -17,6 +24,7 @@ public:
 	void render(sf::RenderWindow& t_window);
 	void setup(sf::Font& t_font);
 	void initialise();
+
 private:
 	//Font
 	sf::Font m_font;
@@ -30,10 +38,13 @@ private:
 	enum Level { ONE, TWO, THREE };
 	Level level = Level::ONE;
 
+	std::vector<Node*> path;
+
+	Player m_player;
 
 	LevelOne levelOne;
 	//LevelTwo levelTwo;
 	//LevelThree levelThree;
-
-
+	std::vector<Enemy*> m_enemys;
+	void generateEnemyLevel1();
 };

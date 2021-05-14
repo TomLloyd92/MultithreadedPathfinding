@@ -13,19 +13,21 @@ public:
 	void setup(sf::Font& t_font);
 	void initialise();
 
-	sf::Vector2f pos;
-
 	//Sets
 
 	//Gets
 	int getNodeIndexX() { return m_nodeIndexX; };
 	int getNodeIndexY() { return m_nodeIndexY; };
 
+	int getCurrentNode() { return m_currentNode; };
+
 
 private:
 	//Node Index
 	int m_nodeIndexX = 0;
 	int m_nodeIndexY = 0;
+
+	sf::RectangleShape m_playerShape;
 
 	void currentNodeUpdate();
 
