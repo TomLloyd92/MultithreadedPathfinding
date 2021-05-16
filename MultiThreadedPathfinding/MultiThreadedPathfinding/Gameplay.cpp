@@ -22,89 +22,46 @@ void GamePlay::update(sf::Time t_deltaTime, sf::RenderWindow& t_window)
 		levelOne.update(t_deltaTime);
 
 		//updateEnemyLvl1(t_deltaTime, m_enemys);
-		//updateEnemyLvl1(t_deltaTime, m_enemys);
-		if (!hasStarted)
-		{
-			//tp.threadQue([&] {updateEnemyLvl1(t_deltaTime, m_enemys); });
-			hasStarted = true;
-		}
+		//updateEnemyLvl1(t_deltaTime, m_enemys1);
+		//updateEnemyLvl1(t_deltaTime, m_enemys2);
+		//updateEnemyLvl1(t_deltaTime, m_enemys3);
+		//updateEnemyLvl1(t_deltaTime, m_enemys4);
+		//updateEnemyLvl1(t_deltaTime, m_enemys5);
+		//updateEnemyLvl1(t_deltaTime, m_enemys6);
+		//updateEnemyLvl1(t_deltaTime, m_enemys7);
+		//updateEnemyLvl1(t_deltaTime, m_enemys8);
+		//updateEnemyLvl1(t_deltaTime, m_enemys9);
 
-		if (!hasStarted1)
-		{
-			//tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys1); });
-			//tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys1, levelOne.levelGraph); });
-			hasStarted1 = true;
-		}
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys1); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys2); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys3); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys4); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys5); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys6); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys7); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys8); });
+
+		tp.threadQue([&] { updateEnemyLvl1(t_deltaTime, m_enemys9); });
+
 		break;
 	case GamePlay::TWO:
 		//Level Two Grid Update
 		levelTwo.update(t_deltaTime);
-
-		//updateEnemyLvl2(t_deltaTime);
-		//Update Enemys
-		//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys); });
-		//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys1); });
-
-		//updateEnemyLvl2Other(t_deltaTime, m_enemys);
-		//updateEnemyLvl2Other(t_deltaTime, m_enemys1);
-		//updateEnemyLvl2Other(t_deltaTime, m_enemys2);
-		//updateEnemyLvl2Other(t_deltaTime, m_enemys3);
-		//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys); });
-		//tp.threadQue([&] { updateEnemyLvl2Other(t_deltaTime, m_enemys1); });
-		//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys2); });
-		//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys3); });
-		//tp.threadQue([&] { test(); });
-		//tp.threadQue([&] { test1(); });
-		//tp.threadQue{ test2(); });
-		//tp.threadQue([&] { test3(); });
-		//tp.threadQue([&] { test4(); });
-		//tp.threadQue([&] { test5(); });
-		//tp.threadQue([&] { test6(); });
-		//tp.threadQue([&] { test7(); });
-		//tp.threadQue([&] { test8(); });
-		//tp.threadQue([&] { test9(); });
-		//tp.threadQue([&] { test10(); });
-		//tp.threadQue([&] { test11(); });
-		//tp.threadQue([&] { test12(); });
-		//tp.threadQue([&] { test13(); });
-		//tp.threadQue([&] { test14(); });
-		//tp.threadQue([&] { test15(); });
-
-		//updateEnemyLvl2(t_deltaTime, m_enemys);
-		//updateEnemyLvl2(t_deltaTime, m_enemys1);
 
 		tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys); });
 		tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys1); });
 		//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys2); });
 		//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys3); });
 
-
-		if (!hasStarted)
-		{
-
-
-			//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys); });
-			//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys1); });
-			//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys); });
-			hasStarted = true;
-		}
-
-	
-		if (!hasStarted1)
-		{
-			if (timer < TIMELIMIT)
-			{
-				timer += t_deltaTime.asSeconds();
-				std::cout << timer << std::endl;
-			}
-			else
-			{
-				std::cout << "Inside" << std::endl;
-				//tp.threadQue([&] { updateEnemyLvl2(t_deltaTime, m_enemys1); });
-				timer = 0;
-				//hasStarted1 = true;
-			}
-		}
 		break;
 
 	case GamePlay::THREE:
@@ -140,113 +97,16 @@ void GamePlay::render(sf::RenderWindow& t_window)
 
 
 	//Draw Enemys
-	for (Enemy* enemy : m_enemys)
-	{
-		switch (level)
-		{
-			case GamePlay::ONE:
-				if (levelOne.levelGraph.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-				{
-					enemy->render(t_window);
-				}
-				break;
-			case GamePlay::TWO:
-				if (levelTwo.levelGraph2.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-				{
-					enemy->render(t_window);
-				}
-				break;
-			case GamePlay::THREE:
-				//if (levelThree.levelGraph3.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-				//{
-				//	enemy->render(t_window);
-				//}
-				break;
-			default:
-				break;
-		}
-	}
-
-	for (Enemy* enemy : m_enemys1)
-	{
-		switch (level)
-		{
-		case GamePlay::ONE:
-			if (levelOne.levelGraph.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			{
-				enemy->render(t_window);
-			}
-			break;
-		case GamePlay::TWO:
-			if (levelTwo.levelGraph2.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			{
-				enemy->render(t_window);
-			}
-			break;
-		case GamePlay::THREE:
-			//if (levelThree.levelGraph3.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			//{
-			//	enemy->render(t_window);
-			//}
-			break;
-		default:
-			break;
-		}
-	}
-
-	for (Enemy* enemy : m_enemys2)
-	{
-		switch (level)
-		{
-		case GamePlay::ONE:
-			if (levelOne.levelGraph.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			{
-				enemy->render(t_window);
-			}
-			break;
-		case GamePlay::TWO:
-			if (levelTwo.levelGraph2.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			{
-				enemy->render(t_window);
-			}
-			break;
-		case GamePlay::THREE:
-			//if (levelThree.levelGraph3.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			//{
-			//	enemy->render(t_window);
-			//}
-			break;
-		default:
-			break;
-		}
-	}
-
-	for (Enemy* enemy : m_enemys3)
-	{
-		switch (level)
-		{
-		case GamePlay::ONE:
-			if (levelOne.levelGraph.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			{
-				enemy->render(t_window);
-			}
-			break;
-		case GamePlay::TWO:
-			if (levelTwo.levelGraph2.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			{
-				enemy->render(t_window);
-			}
-			break;
-		case GamePlay::THREE:
-			//if (levelThree.levelGraph3.nodeIndex(enemy->getCurrentNode())->m_data.passable)
-			//{
-			//	enemy->render(t_window);
-			//}
-			break;
-		default:
-			break;
-		}
-	}
+	renderEnemeys(m_enemys, t_window);
+	renderEnemeys(m_enemys1, t_window);
+	renderEnemeys(m_enemys2, t_window);
+	renderEnemeys(m_enemys3, t_window);
+	renderEnemeys(m_enemys4, t_window);
+	renderEnemeys(m_enemys5, t_window);
+	renderEnemeys(m_enemys6, t_window);
+	renderEnemeys(m_enemys7, t_window);
+	renderEnemeys(m_enemys8, t_window);
+	renderEnemeys(m_enemys9, t_window);
 
 
 
@@ -286,12 +146,62 @@ void GamePlay::input(sf::RenderWindow& t_window)
 
 void GamePlay::generateEnemyLevel1()
 {
-	for (int i = 0; i < 5; i++)
+	//for (int i = 0; i < 500; i++)
+	//{
+	//	Enemy* enemy = new Enemy();
+	//	m_enemys.push_back(enemy);
+	//}
+
+	for (int i = 0; i < 50; i++)
 	{
 		Enemy* enemy = new Enemy();
 		m_enemys.push_back(enemy);
 	}
-
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys1.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys2.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys3.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys4.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys5.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys6.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys7.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys8.push_back(enemy);
+	}
+	for (int i = 0; i < 50; i++)
+	{
+		Enemy* enemy = new Enemy();
+		m_enemys9.push_back(enemy);
+	}
 }
 void GamePlay::generateEnemyLevel2()
 {
@@ -326,12 +236,43 @@ void GamePlay::generateEnemyLevel3()
 	}
 }
 
+void GamePlay::renderEnemeys(std::vector<Enemy*> t_enemys, sf::RenderWindow &t_window)
+{
+	//Draw Enemys
+	for (Enemy* enemy : t_enemys)
+	{
+		switch (level)
+		{
+		case GamePlay::ONE:
+			if (levelOne.levelGraph.nodeIndex(enemy->getCurrentNode())->m_data.passable)
+			{
+				enemy->render(t_window);
+			}
+			break;
+		case GamePlay::TWO:
+			if (levelTwo.levelGraph2.nodeIndex(enemy->getCurrentNode())->m_data.passable)
+			{
+				enemy->render(t_window);
+			}
+			break;
+		case GamePlay::THREE:
+			//if (levelThree.levelGraph3.nodeIndex(enemy->getCurrentNode())->m_data.passable)
+			//{
+			//	enemy->render(t_window);
+			//}
+			break;
+		default:
+			break;
+		}
+	}
+}
+
 void GamePlay::updateEnemyLvl1(sf::Time t_deltaTime, std::vector<Enemy*> enemys)
 {
 	everyoneHasReached = false;
 	std::vector<Node*> path;
-	while (!everyoneHasReached)
-	{
+	//while (!everyoneHasReached)
+	//{
 		static int x = 0;
 
 		//Update Enemys
@@ -363,7 +304,7 @@ void GamePlay::updateEnemyLvl1(sf::Time t_deltaTime, std::vector<Enemy*> enemys)
 					enemy->getRectangle()->setPosition(sf::Vector2f(path.at(i)->m_data.xPos, path.at(i)->m_data.yPos));
 				}
 			}
-		}
+		//}
 		//everyoneHasReached = true;
 	}
 	std::cout << "Function Finished" << std::endl;

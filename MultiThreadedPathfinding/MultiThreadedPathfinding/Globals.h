@@ -8,16 +8,16 @@ enum class  GameMode
 };
 
 //Level 1
-//const static int TILE_WIDTH = 10;
-//const static int SCREEN_WIDTH = TILE_WIDTH * 30;
-//const static int SCREEN_HEIGHT = TILE_WIDTH * 30;
-//const static int MS_PER_UPDATE = 10;
+const static int TILE_WIDTH = 10;
+const static int SCREEN_WIDTH = TILE_WIDTH * 30;
+const static int SCREEN_HEIGHT = TILE_WIDTH * 30;
+const static int MS_PER_UPDATE = 10;
 
 //Level 2
-const static int TILE_WIDTH = 10;
-const static int SCREEN_WIDTH = TILE_WIDTH * 100;
-const static int SCREEN_HEIGHT = TILE_WIDTH * 100;
-const static int MS_PER_UPDATE = 10;
+//const static int TILE_WIDTH = 10;
+//const static int SCREEN_WIDTH = TILE_WIDTH * 100;
+//const static int SCREEN_HEIGHT = TILE_WIDTH * 100;
+//const static int MS_PER_UPDATE = 10;
 
 //Level3
 //const static int TILE_WIDTH = 2;

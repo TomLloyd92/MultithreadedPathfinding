@@ -42,7 +42,7 @@ private:
 	//<---------- Level Settings ----------------->
 	bool showPath = true;
 
-	Level level = Level::TWO;
+	Level level = Level::ONE;
 	LevelOne levelOne;
 	void generateEnemyLevel1();
 
@@ -67,6 +67,8 @@ private:
 
 	Player m_player;
 
+	void renderEnemeys(std::vector<Enemy*> t_enemys, sf::RenderWindow& t_window);
+
 	std::vector<Enemy*> m_enemys;
 	std::vector<Enemy*> m_enemys1;
 	std::vector<Enemy*> m_enemys2;
@@ -76,6 +78,7 @@ private:
 	std::vector<Enemy*> m_enemys6;
 	std::vector<Enemy*> m_enemys7;
 	std::vector<Enemy*> m_enemys8;
+	std::vector<Enemy*> m_enemys9;
 
 	void updateEnemyLvl1(sf::Time t_deltaTime, std::vector<Enemy*> enemys);
 	void updateEnemyLvl2(sf::Time t_deltaTime, std::vector<Enemy*> enemys);

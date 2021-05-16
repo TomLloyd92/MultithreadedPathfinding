@@ -32,8 +32,8 @@ private:
 	sf::RectangleShape m_playerShape;
 
 	void currentNodeUpdate();
-	//int rows = 30;
-	int rows = 100;
+	int rows = 30;
+	//int rows = 100;
 	//int rows = 1000;
 
 	int m_currentNode;

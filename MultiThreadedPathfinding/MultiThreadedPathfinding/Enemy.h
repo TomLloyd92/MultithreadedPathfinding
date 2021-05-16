@@ -48,8 +48,8 @@ private:
 	//std::vector<Node*> m_path;
 	sf::RectangleShape m_enemyShape;
 
-	//int rows = 30;
-	int rows = 100;
+	int rows = 30;
+	//int rows = 100;
 	//int rows = 1000;
 
 };
