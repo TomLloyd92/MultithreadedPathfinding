@@ -25,6 +25,8 @@ public:
 	void initialise();
 	void visit(Node* t_node);
 
+	Graph<NodeData, int> levelGraph3;
+
 private:
 
 

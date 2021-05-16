@@ -63,24 +63,6 @@ LevelOne::LevelOne()
 				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
 			}
 			//Wall 3
-			else if (x == 15 && y > 15)
-			{
-				nodeData.passable = false;
-				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
-			}
-			//Wall 4
-			else if (x == 20 && y < 20)
-			{
-				nodeData.passable = false;
-				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
-			}
-			//Wall 5
-			else if (x == 8 && y < 20 && y > 10)
-			{
-				nodeData.passable = false;
-				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
-			}
-			//Wall 6
 			else if (x == 25 && y < 28 && y > 16)
 			{
 				nodeData.passable = false;

@@ -1,4 +1,4 @@
-#include "Level2.h"
+#include "LevelTwo.h"
 
 
 
@@ -10,7 +10,6 @@ static int const ROWS2 = 100;
 static int const COLS2 = 100;
 static int arr[ROWS2][COLS2];
 int amountNodes2 = ROWS2 * COLS2;
-Graph<NodeData, int> levelGraph2(amountNodes2);
 
 //Function to say what we are visiting
 void LevelTwo::visit(Node* t_node)
@@ -21,6 +20,10 @@ void LevelTwo::visit(Node* t_node)
 //Level One Graph Set up
 LevelTwo::LevelTwo()
 {
+	Graph<NodeData, int> theGraph(amountNodes2);
+
+	levelGraph2 = theGraph;
+
 	//Set Array relative to graph
 	int inputNumber = 0;
 	for (int y = 0; y < COLS2; y++)
@@ -44,12 +47,42 @@ LevelTwo::LevelTwo()
 			nodeData.xPos = x * TILE_WIDTH;
 			nodeData.yPos = y * TILE_WIDTH;
 
-
-			if (y == 3 && x == 3)
+			
+			//Wall 1
+			if (x == 3 && y >= 0 && y < 15)
 			{
 				nodeData.passable = false;
-				nodeData.rectangle.setFillColor(sf::Color(255, 0, 0, 255));
-
+				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+			}
+			//Wall 2
+			else if (x == 15 && y > 15)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+			}
+			//Wall 3
+			else if (x == 50 && y > 50)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+			}
+			//Wall 4
+			else if (x == 20 && y < 20)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+			}
+			//Wall 5
+			else if (x == 8 && y < 20 && y > 10)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
+			}
+			//Wall 6
+			else if (x == 25 && y < 28 && y > 16)
+			{
+				nodeData.passable = false;
+				nodeData.rectangle.setFillColor(sf::Color(0, 0, 0, 255));
 			}
 			else
 			{
@@ -107,14 +140,6 @@ void LevelTwo::update(sf::Time t_deltaTime)
 		levelGraph2.nodeIndex(i)->m_data.rectangle.setOutlineThickness(1);
 		levelGraph2.nodeIndex(i)->m_data.rectangle.setOutlineColor(sf::Color::Black);
 		levelGraph2.nodeIndex(i)->m_data.rectangle.setPosition(levelGraph2.nodeIndex(i)->m_data.xPos, levelGraph2.nodeIndex(i)->m_data.yPos);
-	}
-
-	//Testing aStar by colouring in the square
-	levelGraph2.aStar(levelGraph2.nodeIndex(arr[0][0]), levelGraph2.nodeIndex(arr[15][29]), path2);
-	for (auto& node : path2) {
-
-		node->m_data.rectangle.setFillColor(sf::Color(0, 255, 0, 255));
-		node->m_data.rectangle.setOutlineColor(sf::Color::Black);
 	}
 }
 

@@ -19,6 +19,8 @@ public:
 	int getNodeIndexX() { return m_nodeIndexX; };
 	int getNodeIndexY() { return m_nodeIndexY; };
 
+
+
 	int getCurrentNode() { return m_currentNode; };
 
 
@@ -30,6 +32,9 @@ private:
 	sf::RectangleShape m_playerShape;
 
 	void currentNodeUpdate();
+	//int rows = 30;
+	int rows = 100;
+	//int rows = 1000;
 
 	int m_currentNode;
 

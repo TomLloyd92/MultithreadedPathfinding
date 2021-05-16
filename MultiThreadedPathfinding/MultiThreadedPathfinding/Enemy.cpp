@@ -4,6 +4,8 @@ Enemy::Enemy()
 {
 	m_enemyShape.setSize(sf::Vector2f(TILE_WIDTH, TILE_WIDTH));
 	m_enemyShape.setFillColor(sf::Color::Yellow);
+	m_enemyShape.setPosition(sf::Vector2f((rand() % rows * TILE_WIDTH ), (rand() % rows * TILE_WIDTH)));
+	currentNodeUpdate();
 }
 
 Enemy::~Enemy()

@@ -147,10 +147,11 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="LevelOne.cpp" />
-    <ClCompile Include="Level2.cpp" />
-    <ClCompile Include="Level3.cpp" />
+    <ClCompile Include="LevelTwo.cpp" />
+    <ClCompile Include="LevelThree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ThreadPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
@@ -161,11 +162,12 @@
     <ClInclude Include="GraphArc.h" />
     <ClInclude Include="GraphNode.h" />
     <ClInclude Include="LevelOne.h" />
-    <ClInclude Include="Level3.h" />
-    <ClInclude Include="Level2.h" />
+    <ClInclude Include="LevelThree.h" />
+    <ClInclude Include="LevelTwo.h" />
     <ClInclude Include="NodeCompare.h" />
     <ClInclude Include="NodeData.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ThreadPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

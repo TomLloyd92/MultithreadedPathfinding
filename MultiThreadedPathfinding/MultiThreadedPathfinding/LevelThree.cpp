@@ -1,4 +1,4 @@
-#include "Level3.h"
+#include "LevelThree.h"
 
 
 
@@ -10,7 +10,7 @@ static int const ROWS3 = 1000;
 static int const COLS3 = 1000;
 static int arr[ROWS3][COLS3];
 int amountNodes3 = ROWS3 * COLS3;
-Graph<NodeData, int> levelGraph3(amountNodes3);
+
 
 //Function to say what we are visiting
 void LevelThree::visit(Node* t_node)
@@ -21,6 +21,9 @@ void LevelThree::visit(Node* t_node)
 //Level One Graph Set up
 LevelThree::LevelThree()
 {
+	Graph<NodeData, int> theGraph(amountNodes3);
+
+	levelGraph3 = theGraph;
 	//Set Array relative to graph
 	int inputNumber = 0;
 	for (int y = 0; y < COLS3; y++)
